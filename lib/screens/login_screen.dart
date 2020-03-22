@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterapp/screens/create_account.dart';
+import 'package:flutterapp/screens/home_page.dart';
 import 'package:flutterapp/utilities/constants.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -9,8 +10,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
-
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,7 +25,6 @@ class _LoginScreenState extends State<LoginScreen> {
           height: 60.0,
           child: TextField(
             keyboardType: TextInputType.emailAddress,
-
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'OpenSans',
@@ -102,7 +100,12 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => HomePage()));
+
+          print('Login Button Pressed');
+        },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
@@ -129,10 +132,8 @@ class _LoginScreenState extends State<LoginScreen> {
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context)=> CreateAccount())
-          );
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => CreateAccount()));
         },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
